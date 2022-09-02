@@ -100,6 +100,32 @@ catch (System.Exception)
 Задача 19 HARD - необязательная
 Напишите программу, которая принимает на вход число любой размерности и проверяет, является ли оно палиндромом.
 */
+string checkPalindrome(int number)
+{
+    int lenghtNumber = Convert.ToInt32(Math.Log10(number)) + 1;
+    int cloneNumber = number;
+    int reverseNumber = 0;
+    for (int i = 0; i < lenghtNumber; i++)
+    {
+        reverseNumber += cloneNumber%10 * Convert.ToInt32(Math.Pow(10, i));
+        cloneNumber /= 10;
+    }
+    if (number == reverseNumber) return $"Число {number} является палиндромом";
+    else return $"Число {number} НЕ является палиндромом";
+}
+try
+{
+    Console.WriteLine("Задача 4");
+    Console.Write("Введите число, для проверки на палиндромность: ");
+    int someNumb = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine(checkPalindrome(someNumb));        
+}
+catch (System.Exception)
+{
+    
+    throw;
+}
+
 /*
 Задача 21 HARD - необязательная
 Напишите программу, которая принимает на вход координаты точек и находит расстояние между ними в N-мерном пространстве. N - задается пользователем.
