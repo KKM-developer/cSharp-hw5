@@ -2,6 +2,49 @@
 Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
 [345, 897, 568, 234] -> 2
 */
+int[] FillArray(int[] size)
+    {
+    int[]array = new int[size[0]];
+    for (int i = 0; i < array.Length; i++)
+        {
+            array[i] = new Random().Next(size[1], size[2]);
+            if (i!=array.Length-1) Console.Write($"{array[i]}, ");
+            else Console.WriteLine($"{array[i]}");
+        }
+    return array;
+    }
+int [] dataArray()
+{
+    int[] array = new int[3];
+    Console.WriteLine("Задаем массив из случайных чисел");
+    Console.Write("Укажите длину массива: ");
+    array[0] = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Укажите нижний предел числа в массиве: ");
+    array[1] = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Укажите верхний предел числа в массиве: ");
+    array[2] = Convert.ToInt32(Console.ReadLine());
+    return array;
+}
+int evenNumbArr(int[] array)
+{
+    int count = 0;
+    foreach (int item in array)
+    {
+        if (item%2==0) count++;
+    }
+    return count;
+}
+try
+{
+    Console.WriteLine("Задача 1");
+    int[] arrayFirstTask = FillArray(dataArray());
+    Console.WriteLine($"->{evenNumbArr(arrayFirstTask)}");
+}
+catch (System.Exception)
+{
+    
+    throw;
+}
 /*
 Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
 [3, 7, 23, 12] -> 19
