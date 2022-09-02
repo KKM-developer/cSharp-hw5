@@ -50,6 +50,26 @@ catch (System.Exception)
 [3, 7, 23, 12] -> 19
 [-4, -6, 89, 6] -> 0
 */
+int summOddNumb(int[] array)
+{
+    int summ = 0;
+    for (int i = 1; i < array.Length; i++)
+    {
+
+        if (i%2==1) summ+=array[i];
+    }
+    return summ;
+}
+try
+{
+    Console.WriteLine("Задача 2");
+    int[] arraySecondTask = FillArray(dataArray());
+    Console.WriteLine($"->{summOddNumb(arraySecondTask)}");    
+}
+catch (System.Exception)
+{
+    throw;
+}
 /*
 Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 [3 7 22 2 78] -> 76
