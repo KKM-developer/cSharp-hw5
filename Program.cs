@@ -74,6 +74,28 @@ catch (System.Exception)
 Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 [3 7 22 2 78] -> 76
 */
+int diffMaxMin(int[] array)
+{
+    int max = array[0];
+    int min = array[0];
+    foreach (int item in array)
+    {
+        if (max<item) max = item;
+        if (min>item) min = item;
+    }
+    return max-min;
+}
+try
+{
+    Console.WriteLine("Задача 3");
+    int[] arrayThirdTask = FillArray(dataArray());
+    Console.WriteLine($"->{diffMaxMin(arrayThirdTask)}");    
+}
+catch (System.Exception)
+{
+    
+    throw;
+}
 /*
 Задача 19 HARD - необязательная
 Напишите программу, которая принимает на вход число любой размерности и проверяет, является ли оно палиндромом.
