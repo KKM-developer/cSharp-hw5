@@ -130,3 +130,41 @@ catch (System.Exception)
 Задача 21 HARD - необязательная
 Напишите программу, которая принимает на вход координаты точек и находит расстояние между ними в N-мерном пространстве. N - задается пользователем.
 */
+double getDistanse()
+{
+    Console.Write("Введите размерность N-мерного пространства: ");
+    int nSpace = Convert.ToInt32(Console.ReadLine());
+    int firstCoord = 0;
+    int secondCoord = 0;
+    int[][] nSpaceCoordinate = new int[2][];
+    nSpaceCoordinate[0] = new int[nSpace];
+    nSpaceCoordinate[1] = new int[nSpace];
+    while (firstCoord<nSpace)
+    {
+        Console.Write($"Введите координату {firstCoord} первой точки: ");
+        nSpaceCoordinate[0][firstCoord] = Convert.ToInt32(Console.ReadLine());
+        firstCoord++;
+    }
+    while (secondCoord<nSpace)
+    {
+        Console.Write($"Введите координату {secondCoord} второй точки: ");
+        nSpaceCoordinate[1][secondCoord] = Convert.ToInt32(Console.ReadLine());
+        secondCoord++;
+    }
+    double powSummCoord = 0;
+    for (int i = 0; i < nSpace; i++)
+    {
+        powSummCoord += Math.Pow((nSpaceCoordinate[0][i]-nSpaceCoordinate[1][i]), 2);
+    }
+    return Math.Round(Math.Sqrt(powSummCoord),2);
+}
+try
+{
+    Console.WriteLine("Задача 5");  
+    Console.WriteLine($"Расстояние между Вашими точками = {getDistanse()}");  
+}
+catch (System.Exception)
+{
+    
+    throw;
+}
